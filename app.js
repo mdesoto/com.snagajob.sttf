@@ -2,7 +2,8 @@
 var express  = require('express'),
     http     = require('http'),
     path     = require('path'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    ejs      = require('ejs-locals');
 
 
     // application
@@ -12,6 +13,9 @@ var app = express();
     // database
 mongoose.connect('mongodb://localhost/pingpong');
 
+
+    // use ejs-locals for all ejs templates:
+app.engine('ejs', ejs);
 
     // config
 app.set('port', process.env.PORT || 3000);
@@ -26,6 +30,16 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+    // error handlung
+app.use(function (err, req, res, next) {
+    console.log(err.stack);
+    next(err);
+});
+app.use(function errorHandler(err, req, res, next) {
+    res.status(500);
+    res.render('error', { error: err });
+});
 
     // development
 if ('development' == app.get('env')) {

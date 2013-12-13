@@ -1,0 +1,51 @@
+<% layout('layout') -%>
+
+<form action="/log" method="POST">
+
+	<div class="row">
+		<div class="large-6 columns">
+			<select name="player1">
+				<option value="" selected="true">Player #1</option>
+				<% for (var i=0; i < players.length; i++) { %>
+					<option value="<%= players[i].id %>"><%= players[i].name.full %></option>
+				<% } %>
+			</select>
+		</div>
+		<div class="large-2 columns">
+			<input type="text" name="player1_game1" placeholder="Game 1">
+		</div>
+		<div class="large-2 columns">
+			<input type="text" name="player1_game2" placeholder="Game 2">
+		</div>
+		<div class="large-2 columns">
+			<input type="text" name="player1_game3" placeholder="Game 3">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-6 columns">
+			<select name="player2">
+				<option value="" selected="true">Player #2</option>
+				<% for (var i=0; i < players.length; i++) { %>
+					<option value="<%= players[i].id %>"><%= players[i].name.full %></option>
+				<% } %>
+			</select>
+		</div>
+		<div class="large-2 columns">
+			<input type="text" name="player2_game1" placeholder="Game 1">
+		</div>
+		<div class="large-2 columns">
+			<input type="text" name="player2_game2" placeholder="Game 2">
+		</div>
+		<div class="large-2 columns">
+			<input type="text" name="player2_game3" placeholder="Game 3">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<button type="submit" class="medium button right">Save</button>
+		</div>
+	</div>
+
+</form>

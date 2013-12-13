@@ -7,9 +7,6 @@ var mongoose = require('mongoose'),
 
 exports.updateLadderFromMatch = function (match, cb) {
 
-    console.log("Match");
-    console.log(match);
-
     Ladder.getLatest(false, function (err, currentLadder) {
 
         // new order of the ladder
@@ -38,12 +35,6 @@ exports.updateLadderFromMatch = function (match, cb) {
 
             var winnerPosition = currentLadder.players.indexOf(match.winner_id);
             var loserPosition  = currentLadder.players.indexOf(match.loser_id);
-
-            console.log("Winner Position");
-            console.log(winnerPosition);
-
-            console.log("Loser Position");
-            console.log(loserPosition);
 
             if (winnerPosition > loserPosition) {
                 for (var i = loserPosition; i <= winnerPosition; i++) {

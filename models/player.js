@@ -14,4 +14,10 @@ var player = new mongoose.Schema({
 });
 
 
+    // concatenate the full name
+player.virtual('name.full').get(function () {
+    return this.name.first + ' &quot;' + this.name.nick + '&quot; ' + this.name.last;
+});
+
+
 module.exports = mongoose.model('Player', player);

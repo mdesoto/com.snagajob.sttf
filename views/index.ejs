@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+<% layout('layout') -%>
 
-<body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-</body>
-</html>
+<div class="row">
+
+    <div class="large-12 columns">
+
+        <h3>Current Ladder</h3>
+        <ol>
+            <% for (var i = 0; i < ladder.players.length; i++) { %>
+                <li><%= ladder.players[i].name.full %></li>
+            <% } %> 
+        </ol>
+
+    </div>
+
+</div>

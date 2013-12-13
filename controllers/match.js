@@ -44,9 +44,7 @@ exports.getOne = function(req, res) {
 exports.post = function(req, res) {
 
     if (req.body.player1 == req.body.player2) {
-        var err = "Players are not allowed to play themselves.";
-        console.error(err);
-        res.send(500, err);
+        
     }
     else {
 

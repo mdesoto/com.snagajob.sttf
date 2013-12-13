@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | S.T.T.F</title>
+    <link rel='stylesheet' href='/stylesheets/foundation.min.css' />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <script src="/javascripts/modernizr.js"></script>
+</head>
+
+<body>
+
+    <div class="contain-to-grid">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name"><h1><a href="/">Snagajob Table Tennis Federation</a></h1></li>
+            </ul>
+
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="right">
+                    <li><a href="/rules">Rules &amp; Regulations</a></li>
+                    <li><a href="/log">Log your Match</a></li>
+                    <li><a href="/join">Join the Federation</a></li>
+                </ul>
+
+                <!-- Left Nav Section -->
+                <ul class="left">
+                    <li></li>
+                </ul>
+            </section>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <h2 class="page-title"><%= title %></h2>
+            <%- body %>
+        </div>
+    </div>
+
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+
+</body>
+</html>

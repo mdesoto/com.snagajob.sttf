@@ -1,5 +1,6 @@
     // dependencies
-var playerController = require('./controllers/player'),
+var siteController   = require('./controllers/site'),
+    playerController = require('./controllers/player'),
     matchController  = require('./controllers/match'),
     ladderController = require('./controllers/ladder');
 
@@ -7,6 +8,13 @@ var playerController = require('./controllers/player'),
 module.exports = function(app) {
 
         // routes
+    app.get('/',           siteController.home);
+
+    app.get('/log',        siteController.log);
+    app.post('/log',       siteController.log.post);
+
+    app.get('/join',       siteController.join);
+    // app.post('/join',      siteController.join.post);
 
     app.get('/players',    playerController.getAll);
     app.get('/player/:id', playerController.getOne);
