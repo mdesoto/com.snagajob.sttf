@@ -1,4 +1,4 @@
-sttf
+S.T.T.F
 ====
 
 Snagajob Table Tennis Federation application.
