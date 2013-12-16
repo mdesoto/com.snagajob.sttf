@@ -58,16 +58,6 @@ exports.log.post = function(req, res) {
     // join
 exports.join = function(req, res) {
 
-    Player.find({}).sort('name.last').exec(function (err, players) {
-
-        if (err) {
-            console.error(err);
-            res.send(500, err);
-        }
-        else {
-            res.render('log', { title: 'Log your Match', players: players });
-        }
-
-    });
+    res.render('join', { title: 'Join the Federation' });
 
 };

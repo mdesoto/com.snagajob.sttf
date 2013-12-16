@@ -1,6 +1,7 @@
     // dependencies
 var mongoose = require('mongoose'),
-    stampIt  = require('mongoose-stamp');
+    stampIt  = require('mongoose-stamp'),
+    Player   = require('./player');
 
 
     // schema
@@ -39,6 +40,10 @@ ladder.statics.getLatest = function (populate, cb) {
     }
     else {
         this.findOne({}).sort('-createdAt').exec(function(err, latest) {
+            if (!latest) {
+                console.log("NO LADDER ENTRY");
+            }
+
             cb(err, latest);
         });
     }

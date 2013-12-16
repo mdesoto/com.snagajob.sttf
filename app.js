@@ -11,7 +11,7 @@ var app = express();
 
 
     // database
-mongoose.connect('mongodb://localhost/pingpong');
+mongoose.connect('mongodb://localhost/sttf');
 
 
     // use ejs-locals for all ejs templates:
