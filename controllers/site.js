@@ -61,3 +61,18 @@ exports.join = function(req, res) {
     res.render('join', { title: 'Join the Federation' });
 
 };
+
+
+    // join.post
+exports.join.post = function(req, res) {
+
+    needle.post('http://localhost:3000/player', req.body, function (err, resp, body) {
+        if (err) {
+            res.send(500, resp);
+        }
+        else {
+            res.redirect('/');
+        }
+    });
+
+};
