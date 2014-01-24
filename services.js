@@ -61,5 +61,24 @@ exports.updateLadderFromMatch = function (match, cb) {
         });
 
     });
-    
+
+};
+
+exports.updateLadderFromPlayer = function (player, cb) {
+
+    Ladder.getLatest(false, function (err, currentLadder) {
+
+        currentLadder.players.push(player);
+
+        var ladder = new Ladder({
+            event_player_id: mongoose.Types.ObjectId(player.id),
+            players: currentLadder.players
+        });
+
+        ladder.save(function (err, saved) {
+            cb(err, saved);
+        });
+
+    });
+
 };

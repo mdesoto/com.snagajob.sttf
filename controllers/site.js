@@ -44,11 +44,11 @@ exports.log = function(req, res) {
 exports.log.post = function(req, res) {
 
     needle.post('http://localhost:3000/match', req.body, function (err, resp, body) {
-        if (err) {
-            res.send(500, resp);
+        if (!err && resp.statusCode == 200) {
+            res.redirect('/');
         }
         else {
-            res.redirect('/');
+            res.send(500, body);
         }
     });
 

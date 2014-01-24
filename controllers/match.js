@@ -44,7 +44,12 @@ exports.getOne = function(req, res) {
 exports.post = function(req, res) {
 
     if (req.body.player1 == req.body.player2) {
-        
+        res.send(500, 'Players can not play with themselves!');
+    }
+    else if ((req.body.player1_game1 == req.body.player2_game1) ||
+             (req.body.player1_game2 == req.body.player2_game2) ||
+             ((req.body.player1_game3 && req.body.player2_game3) && (req.body.player1_game3 == req.body.player2_game3))) {
+        res.send(500, 'Games may not end in a tie!');
     }
     else {
 
